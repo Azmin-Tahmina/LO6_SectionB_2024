@@ -2,9 +2,257 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Examples for LO6</title>
+    <script src="scripts/jquery-3.7.1.min.js"></script>
+<!--    <script src="scripts/exampleLo620240322.js"></script>-->
+    <style>
+        p
+        {
+            font-style: italic;
+        }
+
+        .class1
+        {
+            background-color: aqua;
+            color: brown;
+        }
+
+        .class2
+        {
+            background-color: papayawhip;
+            color: chocolate;
+        }
+
+        .special
+        {
+            background-color: #7D8BAE;
+            font-style: normal;
+            font-size: large;
+        }
+
+        .error
+        {
+            color: blue;
+        }
+
+        .bold{
+            font-weight: bold;
+        }
+
+        .green
+        {
+            color: green;
+        }
+
+        .invisible1 {
+            visibility: hidden;
+        }
+        .invisible2{
+            display: none;
+        }
+    </style>
+
 </head>
+
 <body>
+    <h1>jQuery Event Handling Demo</h1>
+
+    <div>
+        <button id="italic">Italic</button>
+        <button id="bold">Bold</button>
+        <button id="undecorate">Undecorate</button>
+    </div>
+
+    <input type="button" id="myNewButton" value="Remove event handlers from paragraph one" />
+    <input type="button" id="myNewButton1" value="Remove event handlers from paragraph two" />
+    <p id="firstPara">First paragraph</p>
+    <p id="secondPara">Second paragraph</p>
+    <p id="thirdPara">Third paragraph</p>
+    <p id="forthPara">Forth paragraph</p>
+    <p id="fifthPara">Fifth paragraph</p>
+    <p id="sixthPara">Sixth paragraph</p>
+    <p id="seventhPara">Seventh paragraph</p>
+
+
+    <img id="happy" src="media/HappyFaceNoSmile.jpg" height="273" width="274" alt="Happy face" />
+
 
 </body>
+<script>
+    "use strict"
+    //javascript
+    // class test{
+    //     let i,j,k;
+    //     test(int i,int  j ,int k)
+    //     {
+    //         this.i = i;
+    //         this.j = j;
+    //         this.k = k;
+    //     }
+    // }
+
+    // let buttonItalic = document.getElementById("italic");
+    // let btnI = $("#italic");
+
+    // Jquery example
+    // $("#italic").click(function (){
+    //     let text = "Hello "+ $(this).text() +" !";
+    //     //$(this).text() +" !";
+    //     alert(text);
+    // });
+    //$("#p").css("font-style","italic")
+
+    // $(document).ready(function(){
+    //     $("#italic").click(function (){
+    //         let text = "Hello "+ $(this).text() +" !";
+    //         //$(this).text() +" !";
+    //         alert(text);
+    //     });
+    // });
+
+    $(function (){
+        // $("#italic").click(function (){
+        //     let text = "Hello "+ $(this).text() +" !";
+        //     //$(this).text() +" !";
+        //     alert(text);
+        // });
+        //
+        // $("p").css("font-style","italic");
+        //
+        // // $("#firstPara").addClass("class1");
+        // $("p:even").addClass("class1");
+        // $("p:odd").addClass("class2");
+        // $("p:eq(2)").addClass("error");
+        // //$("p").addClass( "special error" );
+        // // $("#seventhPara").addClass("special error")
+        // $("p:last").addClass("special error")
+        //
+        //
+        // // $("p:even").removeClass("class1");
+        // $("p:even").removeClass("class1 error"); // it works!
+        // // adding multiple classes
+        //
+        //     //.addClass("class1");
+        //
+        //
+        // $("#bold").click(function (){
+        //     $("p").addClass("bold");
+        // });
+        //
+        // $("#undecorate").click(unDecorate);
+
+        // mouse events
+
+        // $("p").mouseover(function(){
+        //     $(this).addClass("green");
+        // });
+        //
+        // $("p").mouseout(function(){
+        //     $(this).removeClass("green");
+        // });
+
+        // $("p").mouseenter(function(){
+        //     $(this).addClass("green");
+        // });
+        //
+        // $("p").mouseleave(function(){
+        //    $(this).removeClass("green");
+        // });
+
+        // hover() function
+
+        // $("p").hover(function (){
+        //     $(this).addClass("green");
+        // },function (){
+        //     $(this).removeClass("green")
+        // });
+
+
+        // on()
+        // $("#italic").click( function() { … } );
+        // $("#italic").on( "click", function() { … } ); // same as above
+
+        // keeps the space , just makes it invisible
+
+        // $("#firstPara").on("click",function (){
+        //     $(this).addClass("invisible1")
+        // });
+        //
+        // // makes empty spaces
+        //
+        // $("#secondPara").on("click",function (){
+        //     $(this).addClass("invisible2")
+        // });
+        //
+        // $("#myNewButton").on("click",function (){
+        //     $("#firstPara").removeClass("invisible1");
+        // });
+        //
+        // $("#myNewButton1").on("click",function (){
+        //     $("#secondPara").removeClass("invisible2");
+        // });
+
+        // $("#firstPara").on("click",function (){
+        //     $(this).addClass("invisible1")
+        //     $("#secondPara").removeClass("invisible1")
+        //
+        // });
+        //
+        // $("#secondPara").on("click",function (){
+        //     $(this).addClass("invisible1")
+        //     $("#firstPara").removeClass("invisible1")
+        // });
+        //
+        // $("#myNewButton").on("click",function (){
+        //     $("#firstPara").off();
+        // });
+
+        //html(),text() and val()
+
+        $("#italic").on("click",function(){
+            let bText = $(this).text();
+            if(bText === "Italic")
+            {
+                $("p").addClass("special");
+                //$(this).text("UnItalic");
+                // I will also use html()
+                $(this).html("<strong>Un</strong>Italic");
+            }
+            else
+            {
+                $("p").removeClass("special");
+                $(this).html("Italic");
+            }
+        });
+
+        $("#myNewButton").on("click",function (){
+            $("#firstPara").off();
+            //$(this).val("DONE");
+            $(this).val("DONE").attr("disabled",true);
+        });
+
+
+        let face = new Image();
+        face.src = "media/HappyFaceSmile.jpg";
+
+        $("#happy").hover(
+            function ()
+            {
+                $(this).attr("src","media/HappyFaceSmile.jpg").attr("alt","Happy Face")
+            },function()
+            {
+                $(this).attr("src","media/HappyFaceNoSmile.jpg").attr("alt","Apathetic Face")
+            });
+
+
+
+    });
+
+    function unDecorate(){
+        $("p").removeClass("class1 class2 special error bold");
+    }
+    // now -> css(), addClass() and removeClass()
+
+
+</script>
 </html>
