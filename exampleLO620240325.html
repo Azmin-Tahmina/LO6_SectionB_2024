@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Examples for LO6</title>
+    <script src="scripts/jquery-3.7.1.min.js"></script>
+    <script src="scripts/exampleLO620240325.js"></script>
+</head>
+<body>
+    <h1>Fun Effects with Einstein</h1>
+
+    <p>
+<!--        <p id="test">Test HTML<p>-->
+        <h1 id="h1">Test Heading</h1>
+        <img id="einstein" src="media/einstein.jpg"
+             height="240" width="184" alt="Albert Einstein"  />
+    </p>
+
+    <p>
+        <button id="hide">Hide</button>
+        <button id="show">Show</button>
+        <button id="toggle">Toggle</button>
+    </p>
+
+    <p>
+        <button id="fadeout">Fade Out</button>
+        <button id="fadein">Fade In</button>
+    </p>
+
+    <p>
+        <button id="slideup">Slide Up</button>
+        <button id="slidedown">Slide Down</button>
+        <button id="slidetoggle">Slide Toggle</button>
+    </p>
+</body>
+<script>
+    "use strict"
+    $(function() {
+        let einsteinImage = $("#einstein");
+        let h1 = $("#h1");
+        // let p = $("#test").html();
+        // alert(p);
+
+        // $("#hide").on("click",function (){
+        //     einsteinImage.hide();
+        // });
+
+        // $("#show").on("click",()=>{einsteinImage.show();});
+        // $("#toggle").on("click",()=>{h1.toggle();});
+
+        $("#hide").click(function (){
+            h1.hide();
+        });
+
+        $("#show").click(function (){
+            h1.show();
+        });
+
+
+        // these functions can take parameters - fast, slow, 1000
+        $("#fadeout").on("click",()=>{h1.fadeOut(1500);});
+        $("#fadein").on("click",()=>{h1.fadeIn(1500);});
+
+        $("#slideup").on("click",()=>{einsteinImage.slideUp(1500);});
+        $("#slidedown").on("click",()=>{einsteinImage.slideDown(1500);});
+        $("#slidetoggle").on("click",()=>{einsteinImage.slideToggle();});
+
+        einsteinImage.mouseover(function (){
+            $(this).fadeOut(1500);
+        });
+        einsteinImage.mouseout(function (){
+            $(this).fadeIn(1500);
+        });
+    });
+
+    function test()
+    {
+
+    }
+</script>
+</html>
