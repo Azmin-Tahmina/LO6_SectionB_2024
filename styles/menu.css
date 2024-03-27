@@ -39,8 +39,17 @@
    clear: left;
 }
 
-#menubar ul {
-   display: none;
+/*#menubar ul {*/
+/*   display: none;*/
+/*   position: absolute;*/
+/*   z-index: 99;*/
+/*}*/
+
+
+#menubar ul{
+   /*display: none;*/
    position: absolute;
    z-index: 99;
 }
+
+
